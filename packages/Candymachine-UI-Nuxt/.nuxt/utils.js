@@ -200,7 +200,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {"WHITELIST_MINT_DATE":"1668143197","WHITELIST_MINT_PRICE":"0.1","PUBLIC_MINT_DATE":"1668143197","PUBLIC_MINT_PRICE":"0.1","PORT":"3000","NETWORK":"Testnet","CANDY_MACHINE_ID":"0x589db8bafed425239e1671313cabc182d23d2f952c1a512a0af81eae0085e293","RESOURCE_ACCOUNT":"0xa10affb30c8b88b1c23fa9f400830c7ab3e85717f78fe84ca7e91fa54e2fa1d2"}
+      env: {"WHITELIST_MINT_DATE":"1676798041","WHITELIST_MINT_PRICE":"0.1","PUBLIC_MINT_DATE":"1676801641","PUBLIC_MINT_PRICE":"0.1","PORT":"3000","NETWORK":"Localhost","CANDY_MACHINE_ID":"0xcc475a9ff2373a02e6819906337a4d83248f169941deabffaf98f3d305496af7","RESOURCE_ACCOUNT":"0xbf02a814f971fcbc47bd7663c199e7504fa807a170b610bb325a32abe7247cc2","NODE_ENV":"development"}
     }
     // Only set once
 

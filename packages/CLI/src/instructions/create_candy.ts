@@ -1,14 +1,17 @@
 import * as fs from "fs"
 export async function create_candy(alice,fileStream,client,makeid,AptosClient) {
-    let collection_mutable = [false,false,false,false,false]
-    let token_mutable = [false,false,false]
+    let collection_mutable = [false,false,false]
+    let token_mutable = [false,false,false,false,false]
     if(fileStream["mutable"]){
-      collection_mutable = [true,true,true,true,true,]
-      token_mutable = [true,true,true,]
+       collection_mutable = [true,true,true,]
+       token_mutable = [true,true,true,true,true,]
     }
+    // [FIXME] set fixed time for test
+    fileStream["presale_mint_time"] = Math.round(+new Date()/1000 + 60 * 60);
+    fileStream["public_sale_mint_time"] = Math.round(fileStream["presale_mint_time"] + 60 * 60);
     const create_candy_machine = {
       type: "entry_function_payload",
-      function: "0xb9c7b4d7da344bbf03a3d4b144c2020dec1049427b96d0411024153485621185::candymachine::init_candy",
+      function: `${fileStream["program"]}::candymachine::init_candy`,
       type_arguments: [],
       arguments: [
         fileStream['collection_name'],
@@ -27,15 +30,17 @@ export async function create_candy(alice,fileStream,client,makeid,AptosClient) {
         ""+makeid(5),
     ]
     };
+    console.log(create_candy_machine);
     let txnRequest = await client.generateTransaction(alice.address(), create_candy_machine);
     let bcsTxn = AptosClient.generateBCSTransaction(alice, txnRequest);
     let transactionRes = await client.submitSignedBCSTransaction(bcsTxn);
     let check_txn = await client.waitForTransactionWithResult(transactionRes.hash);
+    console.log(check_txn);
     if (check_txn['success']){
         fileStream['resource_account']= check_txn['changes'][2]['address']
         console.log('Candy Machine Created - Transaction Hash: ' + transactionRes.hash)
         let argIndex = process.argv.indexOf('--config')
-        fs.writeFileSync(process.argv[argIndex+1], JSON.stringify(fileStream));
+        fs.writeFileSync(process.argv[argIndex+1], JSON.stringify(fileStream, null, 2));
     }
     return transactionRes.hash
   }

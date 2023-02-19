@@ -2,8 +2,7 @@
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/evilboyajay/Downloads/Development/aptos-library/candy-machine/packages/Candymachine-UI/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_0f4dd47a"
+    "component": "/home/willing/projects/aptos-candymachine/packages/Candymachine-UI-Nuxt/pages/index.vue",
+    "chunkName": "pages/index"
   }
 ]

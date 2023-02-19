@@ -1,3 +1,4 @@
+import fs from 'fs';
 import { HexString,AptosClient, AptosAccount, FaucetClient} from "aptos";
 
 const NODE_URL = "https://fullnode.testnet.aptoslabs.com";
@@ -19,7 +20,9 @@ const notwhitelist = new AptosAccount()
 console.log("Alice Address: "+alice.address())
 console.log("Bob Address: "+bob.address())
 
-const pid ="0xb9c7b4d7da344bbf03a3d4b144c2020dec1049427b96d0411024153485621185"
+// const pid ="0xb9c7b4d7da344bbf03a3d4b144c2020dec1049427b96d0411024153485621185"
+const fileStream = JSON.parse(fs.readFileSync('config.json',"utf8"));
+const pid = `${fileStream["program"]}`
 
 function makeid(length) {
   var result           = '';

@@ -158,7 +158,10 @@ export default {
             }
         },
         verifyTransaction(hash) {
-            this.$axios.get(`https://fullnode.`+process.env.NETWORK.toLowerCase()+`.aptoslabs.com/v1/transactions/by_hash/${hash}`).then(res => {
+            this.$axios.get(
+                    process.env.NETWORK.toLowerCase() == 'localhost'? `http://localhost:8080/v1/transactions/by_hash/${hash}`:
+                    `https://fullnode.`+process.env.NETWORK.toLowerCase()+`.aptoslabs.com/v1/transactions/by_hash/${hash}`
+                ).then(res => {
                 if (res.data.success == true) {
                     this.$toast
                         .success("Mint successful", {
