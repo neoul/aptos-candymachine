@@ -70,6 +70,7 @@ export const actions = {
     let whitesetup=false
     try {
       let candys = null;
+      console.log(process.env.RESOURCE_ACCOUNT)
       candys = await window.martian.getAccountResources(
         process.env.RESOURCE_ACCOUNT,
         process.env.CANDY_MACHINE_ID + "::candymachine::CandyMachine"

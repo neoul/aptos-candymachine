@@ -7,8 +7,8 @@ export async function create_candy(alice,fileStream,client,makeid,AptosClient) {
        token_mutable = [true,true,true,true,true,]
     }
     // [FIXME] set fixed time for test
-    fileStream["presale_mint_time"] = Math.round(+new Date()/1000 + 60 * 60);
-    fileStream["public_sale_mint_time"] = Math.round(fileStream["presale_mint_time"] + 60 * 60);
+    // fileStream["presale_mint_time"] = Math.round(+new Date()/1000 + 60 * 60);
+    // fileStream["public_sale_mint_time"] = Math.round(fileStream["presale_mint_time"] + 60 * 60);
     const create_candy_machine = {
       type: "entry_function_payload",
       function: `${fileStream["program"]}::candymachine::init_candy`,

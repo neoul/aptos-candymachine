@@ -8,6 +8,6 @@ Std = "0x1"
 aptos_std = "0x1"
 
 [dependencies]
-AptosFramework = { local = "../metapixel-aptos-core/aptos-move/framework/aptos-framework"}
-AptosToken = { local = "../metapixel-aptos-core/aptos-move/framework/aptos-token" }
-AptosStdlib = { local = "../metapixel-aptos-core/aptos-move/framework/aptos-stdlib" }
+AptosFramework = { local = "/mnt/wsl/willing/metapixel-aptos-modules/aptos-core/aptos-move/framework/aptos-framework"}
+AptosToken = { local = "/mnt/wsl/willing/metapixel-aptos-modules/aptos-core/aptos-move/framework/aptos-token" }
+AptosStdlib = { local = "/mnt/wsl/willing/metapixel-aptos-modules/aptos-core/aptos-move/framework/aptos-stdlib" }

@@ -73,7 +73,16 @@ module candymachine::candymachine{
         move_to<ResourceInfo>(&resource_signer_from_cap, ResourceInfo{resource_cap: resource_cap, source: signer::address_of(account)});
         assert!(vector::length(&collection_mutate_setting) == 3 && vector::length(&token_mutate_setting) == 5, error::invalid_argument(INVALID_MUTABLE_CONFIG));
         assert!(royalty_points_denominator > 0, error::invalid_argument(EINVALID_ROYALTY_NUMERATOR_DENOMINATOR));
-        assert!(presale_mint_time >=  now && public_sale_mint_time >= presale_mint_time, error::invalid_argument(EINVALID_MINT_TIME));
+        if (public_sale_mint_time == 0) {
+            public_sale_mint_time = now;
+            presale_mint_time = now;
+        } else {
+            if (presale_mint_time != 0) {
+                assert!(presale_mint_time >=  now && public_sale_mint_time >= presale_mint_time, error::invalid_argument(EINVALID_MINT_TIME));
+            } else {
+                presale_mint_time = now;
+            }
+        };
         assert!(royalty_points_numerator <= royalty_points_denominator, error::invalid_argument(EINVALID_ROYALTY_NUMERATOR_DENOMINATOR));
         let whitelist = vector::empty<address>();
         let candies_data = create_bit_mask(total_supply);
@@ -262,7 +271,16 @@ module candymachine::candymachine{
         let account_addr = signer::address_of(account);
         let resource_data = borrow_global<ResourceInfo>(candymachine);
         let now = aptos_framework::timestamp::now_seconds();
-        assert!(public_sale_mint_time >=  now && presale_mint_time >= now, error::invalid_argument(EINVALID_MINT_TIME));
+        if (public_sale_mint_time == 0) {
+            public_sale_mint_time = now;
+            presale_mint_time = now;
+        } else {
+            if (presale_mint_time != 0) {
+                assert!(presale_mint_time >=  now && public_sale_mint_time >= presale_mint_time, error::invalid_argument(EINVALID_MINT_TIME));
+            } else {
+                presale_mint_time = now;
+            }
+        };
         assert!(resource_data.source == account_addr, INVALID_SIGNER);
         let candy_data = borrow_global_mut<CandyMachine>(candymachine);
         assert!(royalty_points_denominator == 0, EINVALID_ROYALTY_NUMERATOR_DENOMINATOR);

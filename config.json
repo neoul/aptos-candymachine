@@ -1,0 +1,22 @@
+{
+  "NODE_URL": "http://localhost:8080",
+  "program": "0x61707c8ee9eccee51ec8dfccebd92766714f4aaffb151a9f10cf0070b14d14b2",
+  "creator_private_key": "0xc338de1105a4b4ba6f734dbccf96136478a05eb704e52a196ed1628c57069968",
+  "collection_name": "META NFT",
+  "collection_description": "META's wonderful NFT",
+  "baseuri": "https://raw.githubusercontent.com/neoul/assets/main/assets/",
+  "royalty_payee_address": "0x61707c8ee9eccee51ec8dfccebd92766714f4aaffb151a9f10cf0070b14d14b2",
+  "royalty_points_denominator": "1000",
+  "royalty_points_numerator": "40",
+  "presale_mint_time": 0,
+  "public_sale_mint_time": 0,
+  "presale_mint_price": "1000",
+  "public_sale_mint_price": "2000",
+  "total_supply": "10",
+  "mutable": "true",
+  "whitelist": [
+    "0x2378b605a7ba94dd4c8b95615526cb9cfd1ab03b712d70de71c39b807ad498ab",
+    "0x61707c8ee9eccee51ec8dfccebd92766714f4aaffb151a9f10cf0070b14d14b2"
+  ],
+  "resource_account": "0xe02544296c66eef53d30fa8427c2cac1f5fa509829e832f166e3c2b9a56defec"
+}

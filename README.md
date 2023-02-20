@@ -3,9 +3,11 @@
 ```shell
 aptos init # create default profile
 aptos init --assume-yes --network local --profile user1
-aptos move compile --save-metadata --named-addresses candymachine=0xcc475a9ff2373a02e6819906337a4d83248f169941deabffaf98f3d305496af7
-aptos move publish --named-addresses candymachine=0xcc475a9ff2373a02e6819906337a4d83248f169941deabffaf98f3d305496af7
+aptos move compile --save-metadata --named-addresses candymachine=0x61707c8ee9eccee51ec8dfccebd92766714f4aaffb151a9f10cf0070b14d14b2
+aptos move publish --named-addresses candymachine=0x61707c8ee9eccee51ec8dfccebd92766714f4aaffb151a9f10cf0070b14d14b2
 npx ts-node packages/CLI/src/index.ts --create_candy --config config.json
+npx ts-node packages/CLI/src/index.ts --create_whitelist --config config.json
+npx ts-node packages/CLI/src/index.ts --config config.json --mint 0x21260d382228564cccc6c985889a8d2fe816734c10a0518cdbee51bc1ce07446
 ```
 
 

@@ -86,13 +86,7 @@ export default {
                     repeat++;
                 }
                 repeat = 0;
-                if (this.walletAddr) {
-                    if (this.candyMachine.whitelist.includes(this.walletAddr)) {
-                        blncRequired = process.env.WHITELIST_MINT_PRICE;
-                    } else {
-                        blncRequired = process.env.PUBLIC_MINT_PRICE;
-                    }
-                }
+                blncRequired = process.env.PUBLIC_MINT_PRICE;
                 try {
                     this.minting = true;
                     const create_mint_script = {

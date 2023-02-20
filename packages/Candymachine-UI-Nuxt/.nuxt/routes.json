@@ -3,6 +3,7 @@
     "name": "index",
     "path": "/",
     "component": "/home/willing/projects/aptos-candymachine/packages/Candymachine-UI-Nuxt/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_342f85f9"
   }
 ]

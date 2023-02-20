@@ -1,7 +1,7 @@
 build/
 node_modules/
 .aptos
-config.json
+# config.json
 packages/CLI/node_modules
 packages/CLI/config.json
 .DS_Store
