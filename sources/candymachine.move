@@ -165,7 +165,6 @@ module candymachine::candymachine{
             if (required_position == random_index)
             {
                 bit_vector::set(&mut bitvector,i);
-                vector::push_back(&mut new, bitvector);
                 break
             };
             pos=pos+1;
